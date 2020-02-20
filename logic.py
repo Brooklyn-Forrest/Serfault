@@ -78,7 +78,7 @@ class Spinner(Piece):
 
 class Wraith(Piece):
     # Your pieces can go through a wraith. Opponents cannot pass through a wraith and "stop short".
-    # If a piece is stopped short because of wraith, it cannot attack the next turn.
+    # If a piece is stopped short because of wraith, wraith cannot attack the next turn.
     def __init__(self, start_pos, alias_id):
         super().__init__("Uni", -2, start_pos, 2, 1, alias_id)
 
