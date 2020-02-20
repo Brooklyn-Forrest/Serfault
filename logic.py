@@ -85,7 +85,7 @@ class Wraith(Piece):
 
 class Brave(Piece):
     # The brave must attack from three distance and has
-    # the ability martyr. Martyr is trigger when the brave is killed.
+    # the ability martyr. Martyr is triggered when the brave is killed.
     # Martyr: If the divinity is still alive, it transforms into a spinner.
     # A wraith is created where the brave died.
     def __init__(self, start_pos, alias_id):
