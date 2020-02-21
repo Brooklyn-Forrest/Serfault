@@ -4,7 +4,7 @@
 from random import seed
 from random import randint
 
-# 7 x 7
+# 8 x 8
 # (x, y): occupied
 spaces = \
     {(0, 0): 0, (0, 1): 0, (0, 2): 0, (0, 3): 0, (0, 4): 0, (0, 5): 0, (0, 6): 0,
