@@ -1,6 +1,9 @@
 # 2/19/2020
 # Serfault. A chess-like game with different pieces, conditions, and a larger board.
 
+from random import seed
+from random import randint
+
 # 7 x 7
 # (x, y): occupied
 spaces = \
@@ -10,7 +13,8 @@ spaces = \
      (3, 0): 0, (3, 1): 0, (3, 2): 0, (3, 3): 0, (3, 4): 0, (3, 5): 0, (3, 6): 0,
      (4, 0): 0, (4, 1): 0, (4, 2): 0, (4, 3): 0, (4, 4): 0, (4, 5): 0, (4, 6): 0,
      (5, 0): 0, (5, 1): 0, (5, 2): 0, (5, 3): 0, (5, 4): 0, (5, 5): 0, (5, 6): 0,
-     (6, 0): 0, (6, 1): 0, (6, 2): 0, (6, 3): 0, (6, 4): 0, (6, 5): 0, (6, 6): 0
+     (6, 0): 0, (6, 1): 0, (6, 2): 0, (6, 3): 0, (6, 4): 0, (6, 5): 0, (6, 6): 0,
+     (7, 0): 0, (7, 1): 0, (7, 2): 0, (7, 3): 0, (7, 4): 0, (7, 5): 0, (7, 6): 0,
 }
 
 
@@ -101,9 +105,33 @@ class Divinity(Piece):
 
 class Game:
 
-    def __init__(self):
+    def __init__(self, mode):
+        # This var will be set to false any time a start condition is not met.
+        # The status val will be checked after instantiation, and if it is False,
+        # the instance will be deleted and the process restarted.
+        self.status = True
+
+        self.mode = mode
+
+        if self.mode == "GreyVCom" or mode == "GreyVRed":
+            self.p1color = "Grey"
+            self.p2color = "Red"
+        elif self.mode == "RedVCom" or mode == "RedVGrey":
+            self.p1color = "Red"
+            self.p2color = "Grey"
+        else:
+            print("Mode not selected.")
+            self.status = False
+
+    # Dice function that determines who goes first.
+    @staticmethod
+    def generate_die_val():
+        seed(3)
+        value = randint(1, 6)
+        return value
+
+    def attack(self, obj_piece, selected_space):
         pass
 
-
-def start():
-    pass
+    def move(self, obj_piece, selected_space):
+        pass
