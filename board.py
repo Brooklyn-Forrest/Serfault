@@ -10,8 +10,10 @@ class Window:
         self.width = width
         self.height = height
         self.screen = ""
+
         self.pyinst = pygame.init()
         self.running = True
+
         self.tile_size = math.floor(width / 12)
         print(self.tile_size)
         self.black_hex = [0, 0, 0]
@@ -23,6 +25,10 @@ class Window:
     def open(self):
         self.screen = pygame.display.set_mode([self.width, self.height])
         self.screen.fill(self.white_hex)
+        pygame.display.set_caption('Serfault')
+        ico = pygame.image.load("img_attempt_cap1_GZW_icon.ico")
+        pygame.display.set_icon(ico)
+
 
     @staticmethod
     def update_screen():
